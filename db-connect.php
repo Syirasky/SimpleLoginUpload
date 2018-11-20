@@ -17,5 +17,6 @@
         public function getDb(){
             return $this->connect;
         }
+       
     }
 ?>
