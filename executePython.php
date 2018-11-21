@@ -1,6 +1,6 @@
 <?php
 include_once 'db-connect.php';
-require_once 'D:\Xampp\htdocs\TestLoginSaja2\imageDBHelper.php';
+require_once 'imageDBHelper.php';
 
 class secondprocess{
 	
@@ -10,9 +10,9 @@ class secondprocess{
 		$userObject = new firstprocess();
 
 		
-		$strdir = getcwd()."\\uploads\\";
-		$_SortGrade = getcwd()."\\pythonScript\\_SortGrade_(main).py";
-		$imgpath ="D:\\\\Xampp\\\\htdocs\\\\TestLoginSaja2\\\\uploads\\\\".$imgname;
+		$strdir = getcwd()."//uploads//";
+		$_SortGrade = getcwd()."//pythonScript//_SortGrade_(main).py";
+		$imgpath ="//uploads//".$imgname;
 		
 		print_r($imgpath);
 		$newcmd = "python $_SortGrade $answer $imgname $imgpath $strdir";

@@ -21,9 +21,9 @@
  * 
  * 
  */
-		$strpypath = getcwd()."\\pythonScript\\pathtodebug.py";
-		$strdir = getcwd()."\\uploads\\";
-		$extrapath = "\\pythonScript\\";
+		$strpypath = getcwd()."//pythonScript//pathtodebug.py";
+		$strdir = getcwd()."//uploads//";
+		$extrapath = "//pythonScript//";
 		$newcmd = "python $strpypath $strdir $extrapath";
 		//print_r($newcmd);
 		$output = shell_exec($newcmd);

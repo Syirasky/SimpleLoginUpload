@@ -1,7 +1,7 @@
 <?php
 include_once 'db-connect.php';
-require_once 'D:\Xampp\htdocs\TestLoginSaja2\imageDBHelper.php';
-require_once 'D:\Xampp\htdocs\TestLoginSaja2\executePython.php';
+require_once 'imageDBHelper.php';
+require_once 'executePython.php';
 
 	$userObject = new firstprocess(); //retrieving data
 	$secondprocess = new secondprocess(); //for image process 
