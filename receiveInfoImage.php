@@ -20,18 +20,35 @@ require_once 'D:\Xampp\htdocs\TestLoginSaja2\executePython.php';
 	foreach($strtest as $infodetail){
 			
 			$imageuri = $infodetail['uri'];
-			$strimgname = substr($infodetail['uri'],strrpos($imageuri,'/')+1);
+			$strimgname = substr($infodetail['uri'],strrpos($imageuri,'/')+1);//get the filename
 			
 			$userObject->insertrecord($infodetail['studentID'],$infodetail['subjectID'],$infodetail['examcode'],'lecturerid',$strimgname,'0'); 
 							//(student_id, subject_id, exam_id, lecturer_id,image_uri,score) 
 			
-			$secondprocess->processimage($infodetail['subjectID'],$infodetail['examcode'],'lecturerid','ACBADCCADBDDDADDCCAD',$strimgname);
-	
+			$secondprocess->processimage($infodetail['subjectID'],$infodetail['examcode'],'lecturerid',$answer,$strimgname);
+										//$subjectid,$examcode,$lecturerid,$answer,$imgname
 	}
 	
 	$userObject->insertexaminfo($json_data['details'][0]['subjectID'],$json_data['details'][0]['examcode'],$answer);
 	
-	
+	/*{
+  "answer": "ACBADCCADBDDDADDCCAD",
+  "details": [
+    {
+      "examcode": "Sept18",
+      "studentID": "12012",
+      "uri": "file:///storage/emulated/0/Pictures/OMR/OMR_1543517306516.jpg",
+      "subjectID": "IOT"
+    },
+    {
+      "examcode": "Sept18",
+      "studentID": "8338",
+      "uri": "file:///storage/emulated/0/Pictures/OMR/OMR_1543517333596.jpg",
+      "subjectID": "IOT"
+    }
+  ]
+}*/
+
 	//$secondprocess->processimage();
 	
 	//fclose($filewrite);//------write to file 3

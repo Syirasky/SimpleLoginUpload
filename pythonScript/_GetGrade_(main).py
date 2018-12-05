@@ -145,7 +145,7 @@ def sort_contours(cnts, method="left-to-right"):
 	return cnts
 
 def gradeNow(image,i):
-	
+	image = remove_shadow(image)
 	#cnts = findAllCnts(image.copy())
 	kernel = np.ones((3,3), np.uint8) #3 ++
 	image = doMorphologyEx(image, cv2.MORPH_OPEN, kernel)# ++
@@ -190,6 +190,19 @@ def gradeNow(image,i):
 	#	cv2.imshow("img 11",image)
 	#	cv2.waitKey(0)
 	return bubbled[1] 
+
+def remove_shadow(img):
+	
+	dilated_img = cv2.dilate(img, np.ones((7,7), np.uint8)) 
+	bg_img = cv2.medianBlur(dilated_img, 21)
+	diff_img = 255 - cv2.absdiff(img, bg_img)
+	norm_img = diff_img.copy() # Needed for 3.x compatibility
+	cv2.normalize(diff_img, norm_img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
+	_, thr_img = cv2.threshold(norm_img, 230, 0, cv2.THRESH_TRUNC)
+	cv2.normalize(thr_img, thr_img, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
+	#cv2.imshow("test",thr_img)
+	return thr_img
+
 
 def first_2chars(x):
     return(x[0:2])
