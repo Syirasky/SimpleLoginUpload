@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 #
 #  sort and grade.py
@@ -25,7 +25,6 @@
 
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 from imutils.perspective import four_point_transform
 from imutils import contours
 import math
@@ -50,7 +49,6 @@ imagename = sys.argv[2]
 filenamepath = sys.argv[3]
 #filename='a.jpg'
 newstrdir= sys.argv[4]
-
 
 def findAllCnts(img):
 	kernel = np.ones((3,3), np.uint8) #3

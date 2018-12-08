@@ -10,14 +10,14 @@ class secondprocess{
 		$userObject = new firstprocess();
 
 		
-		$strdir = getcwd()."//uploads//";
-		$_SortGrade = getcwd()."//pythonScript//_SortGrade_(main).py";
-		$imgpath ="//uploads//".$imgname;
+        $strdir = getcwd()."/uploads/";
+		$_SortGrade = getcwd()."/pythonScript/_SortGrade_(main).py";
+		$imgpath =getcwd()."/uploads/".$imgname;
 		
 		print_r($imgpath);
-		$newcmd = "python $_SortGrade $answer $imgname $imgpath $strdir";
+		$newcmd = "python3 \"$_SortGrade\" $answer $imgname $imgpath \"$strdir\"";
 		//print_r($newcmd);
-		$output = shell_exec($newcmd);
+		//$output = shell_exec($newcmd);
 		print_r("\r\n".$output);
 
 		$userObject->updateScore("student_score",$imgname,$output);	

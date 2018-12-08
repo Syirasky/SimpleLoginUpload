@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 #
 #  pathtodebug.py
@@ -25,6 +25,21 @@ import sys
 import os
 from datetime import datetime
 
+import numpy as np
+import cv2
+from imutils.perspective import four_point_transform
+from imutils import contours
+import math
+import imutils
+import time
+from pandas import DataFrame
+import errno
+import os
+from datetime import datetime
+import _GetSection as gSect
+from os import walk 
+import sys
+
 print ('Number of arguments:', len(sys.argv), 'arguments.')
 print ('Argument List:', str(sys.argv))
 strdir = sys.argv[1]
@@ -33,6 +48,6 @@ extrapath = sys.argv[2]
 strname = "a.jpg"+"_"+datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 mydir = os.path.join(strdir,strname)
 print(mydir)
-
+print(sys.version)
 #D:\Xampp\htdocs\TestLoginSaja2\pythonScript\a.jpg_2018-11-19_16-57-04
 #D:\Xampp\htdocs\TestLoginSaja2\pythonScript\a.jpg_2018-11-19_21-14-32

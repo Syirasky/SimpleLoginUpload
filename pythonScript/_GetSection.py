@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 #
 #  GetMarkFromSection.py
@@ -233,7 +233,7 @@ def extraquestion(img,listtrack,path):
 	rightbound = widthQ - 280 #the lesser the value, the "right"-er the output
 	topbound = 0	
 	
-	print("heightRange",heightRange)
+	#print("heightRange",heightRange)
 	
 	bottombound = heightRange + 30	
 	

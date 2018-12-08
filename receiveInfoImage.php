@@ -5,8 +5,8 @@ require_once 'executePython.php';
 
 	$userObject = new firstprocess(); //retrieving data
 	$secondprocess = new secondprocess(); //for image process 
-
-	$data = file_get_contents('php://input');
+//php://input
+	$data = file_get_contents('json.json');
 	$json_data = json_decode($data,true);
 	//$encodebalik = json_encode($json_data);
 
@@ -31,7 +31,24 @@ require_once 'executePython.php';
 	
 	$userObject->insertexaminfo($json_data['details'][0]['subjectID'],$json_data['details'][0]['examcode'],$answer);
 	
-	
+	/*{
+  "answer": "ACBADCCADBDDDADDCCAD",
+  "details": [
+    {
+      "examcode": "Sept18",
+      "studentID": "12012",
+      "uri": "file:///storage/emulated/0/Pictures/OMR/OMR_1543517306516.jpg",
+      "subjectID": "IOT"
+    },
+    {
+      "examcode": "Sept18",
+      "studentID": "8338",
+      "uri": "file:///storage/emulated/0/Pictures/OMR/OMR_1543517333596.jpg",
+      "subjectID": "IOT"
+    }
+  ]
+}*/
+
 	//$secondprocess->processimage();
 	
 	//fclose($filewrite);//------write to file 3
