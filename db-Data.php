@@ -1,6 +1,6 @@
 <?php
 /*
- * debugpython.php
+ * db-Data.php
  * 
  * Copyright 2018 User <User@DESKTOP-17Q7VC8>
  * 
@@ -21,13 +21,35 @@
  * 
  * 
  */
-		$strpypath = getcwd()."//pythonScript//pathtodebug.py";
-		$strdir = getcwd()."//uploads//";
-		$extrapath = "//pythonScript//";
-		$newcmd = "python $strpypath $strdir $extrapath";
-		//print_r($newcmd);
-		$output = shell_exec($newcmd);
-		print_r("\r\n".$output);
-		echo($newcmd);	
-//		D:\Xampp\htdocs\TestLoginSaja2\a.jpg_2018-11-19_16-57-23	before .. then add strdir D:\Xampp\htdocs\TestLoginSaja2\pythonScript\a.jpg_2018-11-19_21-14-32
+  include_once 'db-connect.php';
+  
+  class apitoDB{
+		private $db;
+		private $db_table = "student_score";
+		
+		public	function __construct(){
+			$this->db = new DbConnect();
+				  
+		}
+		
+		public function getAllData(){
+			$query = "select * from ".$this->db_table;
+			$result = mysqli_query($this->db->getDb(),$query);
+			$response = array();
+			while($row=mysqli_fetch_array($result)){
+				$data["studentID"]=$row["student_id"];
+				$data["subject_id"]=$row["subject_id"];
+				$data["examcode"]=$row["exam_id"];
+				$data["userID"]=$row["lecturer_id"];
+				$data["uri"]=$row["image_name"];
+				$data["score"]=$row["score"];
+				array_push($response,$data);
+			}
+			
+			echo json_encode(array("data_result"=>$response));
+		}	
+		
+	}
+		
+
 ?>

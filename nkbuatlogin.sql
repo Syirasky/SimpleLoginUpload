@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2018 at 09:04 AM
+-- Generation Time: Dec 05, 2018 at 03:00 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -35,14 +35,6 @@ CREATE TABLE `examinfo` (
   `answer` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `examinfo`
---
-
-INSERT INTO `examinfo` (`num`, `subject_id`, `exam_code`, `answer`) VALUES
-(90, 'cai', 'Nam', 'ACBADCCADBDDDADDCCAD'),
-(92, 'test1', 'test12017', 'ACBADCCADBDDDADDCCAD');
-
 -- --------------------------------------------------------
 
 --
@@ -64,12 +56,9 @@ CREATE TABLE `student_score` (
 --
 
 INSERT INTO `student_score` (`num`, `student_id`, `subject_id`, `exam_id`, `lecturer_id`, `image_name`, `score`) VALUES
-(197, '7171', 'cai', 'Nam', 'lecturerid', 'OMR_1542602106945.jpg', '16\n'),
-(198, '0909', 'cai', 'Nam', 'lecturerid', 'OMR_1542602024615.jpg', '17\n'),
-(199, '7171', 'cai', 'Nam', 'lecturerid', 'OMR_1542602106945.jpg', '16\n'),
-(200, '0909', 'cai', 'Nam', 'lecturerid', 'OMR_1542602024615.jpg', '17\n'),
-(201, '01212', 'test1', 'test12017', 'lecturerid', 'OMR_1542643497703.jpg', '16\n'),
-(202, '2012222', 'test1', 'test12017', 'lecturerid', 'OMR_1542643526553.jpg', '16\n');
+(225, '6392', 'Nan', 'May10', 'lecturerid', 'OMR_1543943893092.jpg', '5\n'),
+(226, '6301', 'Nan', 'May10', 'lecturerid', 'OMR_1543943916487.jpg', '5\n'),
+(227, '6292', 'Nan', 'May10', 'lecturerid', 'OMR_1543943940230.jpg', '5\n');
 
 -- --------------------------------------------------------
 
@@ -126,13 +115,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `examinfo`
 --
 ALTER TABLE `examinfo`
-  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `student_score`
 --
 ALTER TABLE `student_score`
-  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
 
 --
 -- AUTO_INCREMENT for table `users`

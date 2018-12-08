@@ -1,6 +1,6 @@
 <?php
 /*
- * debugpython.php
+ * interfaceToDb.php
  * 
  * Copyright 2018 User <User@DESKTOP-17Q7VC8>
  * 
@@ -21,13 +21,12 @@
  * 
  * 
  */
-		$strpypath = getcwd()."//pythonScript//pathtodebug.py";
-		$strdir = getcwd()."//uploads//";
-		$extrapath = "//pythonScript//";
-		$newcmd = "python $strpypath $strdir $extrapath";
-		//print_r($newcmd);
-		$output = shell_exec($newcmd);
-		print_r("\r\n".$output);
-		echo($newcmd);	
-//		D:\Xampp\htdocs\TestLoginSaja2\a.jpg_2018-11-19_16-57-23	before .. then add strdir D:\Xampp\htdocs\TestLoginSaja2\pythonScript\a.jpg_2018-11-19_21-14-32
+include_once 'db-connect.php';
+require_once 'db-Data.php';
+
+$amikdata = new apitoDB();
+
+$amikdata->getAllData();
+
+
 ?>

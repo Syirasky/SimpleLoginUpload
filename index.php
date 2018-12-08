@@ -1,6 +1,6 @@
 <?php
     
-    require_once 'D:\Xampp\htdocs\TestLoginSaja2\user.php';
+    require_once 'user.php';
     
     $username = "";
     
