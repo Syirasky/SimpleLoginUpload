@@ -154,24 +154,24 @@ def sort_contours(cnts, method="left-to-right"):
 	return cnts
 
 def gradeNow(image,i):
-	image = remove_shadow(image)
+	image = remove_shadow(image,i)
 	#cnts = findAllCnts(image.copy())
-	kernel = np.ones((3,3), np.uint8) #3 ++
+	kernel = np.ones((1,1), np.uint8) #3 ++
 	image = doMorphologyEx(image, cv2.MORPH_OPEN, kernel)# ++
 	
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-	edged = cv2.Canny(blurred, 75, 200)
+	edged = cv2.Canny(blurred, 100, 200)
 	
 
 	
 	thresh = cv2.threshold(blurred, 0, 255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-	thresh1 = doAdaptiveThreshold(blurred)
+	#thresh1 = doAdaptiveThreshold(blurred)
 	kernel = np.ones((3, 3), np.uint8)# ++
 	#thresh = doMorphologyEx(thresh, cv2.MORPH_CLOSE, kernel)# ++
-	
+	dilated = cv2.dilate(thresh,kernel)
 	#[debug]	cv2.imshow("thresh",thresh)
-	_,cnts,_ = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+	_,cnts,_ = cv2.findContours(dilated,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
 	
 	filteredcnts = filter_contours(cnts)
 	sortedcnts = sort_contours(filteredcnts)
@@ -204,7 +204,7 @@ def first_2chars(x):
     return(x[0:2])
     
 
-def remove_shadow(img):
+def remove_shadow(img,i):
 	
 	dilated_img = cv2.dilate(img, np.ones((7,7), np.uint8)) 
 	bg_img = cv2.medianBlur(dilated_img, 21)
