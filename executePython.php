@@ -15,9 +15,9 @@ class secondprocess{
 		$imgpath =getcwd()."/uploads/".$imgname;
 		
 		print_r($imgpath);
-		$newcmd = "python3 \"$_SortGrade\" $answer $imgname $imgpath \"$strdir\"";
+		$newcmd = "sudo -u ubuntu python3 \"$_SortGrade\" \"$answer\" \"$imgname\" \"$imgpath\" \"$strdir\"";
 		//print_r($newcmd);
-		//$output = shell_exec($newcmd);
+		$output = shell_exec($newcmd);
 		print_r("\r\n".$output);
 
 		$userObject->updateScore("student_score",$imgname,$output);	

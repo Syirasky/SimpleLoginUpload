@@ -6,7 +6,7 @@ require_once 'executePython.php';
 	$userObject = new firstprocess(); //retrieving data
 	$secondprocess = new secondprocess(); //for image process 
 //php://input
-	$data = file_get_contents('json.json');
+	$data = file_get_contents('php://input');
 	$json_data = json_decode($data,true);
 	//$encodebalik = json_encode($json_data);
 
